@@ -9,7 +9,7 @@ class Regressor(BaseEstimator):
 #base_estimator = cl
         self.clf1 = ExtraTreesRegressor(n_estimators=500, max_depth = 10, bootstrap = True, n_jobs= 1)
 
-        self.clf2 = BaggingRegressor(n_estimators=500, max_features=10, bootstrap=True, bootstrap_features=True, n_jobs=7)
+        self.clf2 = BaggingRegressor(n_estimators=500, max_features=10, bootstrap=True, bootstrap_features=True, n_jobs=1)
         cl = RandomForestRegressor(n_estimators=31, max_depth=25, max_features=20, n_jobs=1)
         self.clf3 = AdaBoostRegressor(base_estimator = cl, n_estimators=39)
         self.clf4 = GradientBoostingRegressor(n_estimators = 500, max_depth = 25, max_features = 20)
