@@ -1,23 +1,29 @@
-
+from sklearn.ensemble import RandomForestRegressor
 from sklearn.base import BaseEstimator
-from sklearn.ensemble import BaggingRegressor, RandomForestRegressor
-from sklearn.ensemble import ExtraTreesRegressor, AdaBoostRegressor, GradientBoostingRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import StandardScaler
+from sklearn.pipeline import Pipeline
+from sklearn.base import BaseEstimator
+from sklearn.decomposition import KernelPCA
+from sklearn import neighbors
+from sklearn.decomposition import PCA
+#import xgboost as xgb
 
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.base import BaseEstimator
+from sklearn.ensemble import AdaBoostRegressor
+
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.base import BaseEstimator
+ 
 class Regressor(BaseEstimator):
     def __init__(self):
- #       cl = RandomForestRegressor(n_estimators=31, max_depth=25, max_features=20, n_jobs=4)
-#base_estimator = cl
-        self.clf1 = ExtraTreesRegressor(n_estimators=500, max_depth = 10, bootstrap = True, n_jobs= 1)
-
-        self.clf2 = BaggingRegressor(n_estimators=500, max_features=10, bootstrap=True, bootstrap_features=True, n_jobs=1)
-        cl = RandomForestRegressor(n_estimators=31, max_depth=25, max_features=20, n_jobs=1)
-        self.clf3 = AdaBoostRegressor(base_estimator = cl, n_estimators=39)
-        self.clf4 = GradientBoostingRegressor(n_estimators = 500, max_depth = 25, max_features = 20)
+        self.clf =  GradientBoostingRegressor( n_estimators = 1950 , max_depth = 9 , max_features = 27)
+        #self.clf =  GradientBoostingRegressor( n_estimators = 100 , max_depth = 9 , max_features = 10)
+ 
     def fit(self, X, y):
-        self.clf1.fit(X, y)
-        self.clf2.fit(X, y)
-        self.clf3.fit(X, y)
-        self.clf4.fit(X, y)
-
+        self.clf.fit(X, y)
+ 
     def predict(self, X):
-        return (self.clf1.predict(X) +self.clf2.predict(X) +self.clf3.predict(X) +self.clf4.predict(X))/4
+        return self.clf.predict(X)
