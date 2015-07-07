@@ -69,9 +69,9 @@ class FeatureExtractor(object):
 
         
         ### Add booking curve XXXX
-        X_encoded = X_encoded.drop('WeeksToDepartureMin', axis=1)
-        X_encoded = X_encoded.drop('WeeksToDepartureMax', axis=1)     
-        X_encoded = X_encoded.drop('WeeksToDepartureMedian', axis=1)
+        #X_encoded = X_encoded.drop('WeeksToDepartureMin', axis=1)
+        #X_encoded = X_encoded.drop('WeeksToDepartureMax', axis=1)     
+        #X_encoded = X_encoded.drop('WeeksToDepartureMedian', axis=1)
         
         ### Special event
         X_encoded = X_encoded.drop('NYE', axis=1)
